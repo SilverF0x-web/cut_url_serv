@@ -1,4 +1,7 @@
 <?php
+
+include_once "includes/header.php";
+
     if (isset($_GET['url']) && !empty($_GET['url'])) {
         $url = strtolower(trim($_GET['url']));
 
@@ -16,11 +19,10 @@
 
     include "includes/header.php";
 
-
 ?>
 <main class="container">
     <div class="row mt-5">
-        <?php if (!isset($_SESSION['user']['id']) && empty($_SESSION['user']['id'])) { ?>
+        <?php if (!isset($_SESSION['user']['id'])) { ?>
             <div class="col">
                 <h2 class="text-center">Необходимо <a href="<?php echo get_url('register.php'); ?>">зарегистрироваться</a> или <a href="<?php echo get_url('login.php'); ?>">войти</a> под своей учетной записью</h2>
             </div>

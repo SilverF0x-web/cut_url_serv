@@ -18,10 +18,7 @@ if (isset($_POST['login']) && !empty($_POST['login'])) {
     register_user($_POST);
 }
 
-if (isset($_SESSION['user']['id']) && !empty($_SESSION['user']['id'])) {
-    header('Location: profile.php');
-    die;
-}
+if (isset($_SESSION['user']['id'])) header('Location: profile.php');
 
 ?>
 
