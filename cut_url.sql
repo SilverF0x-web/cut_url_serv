@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Ноя 22 2021 г., 13:29
+-- Время создания: Ноя 22 2021 г., 17:22
 -- Версия сервера: 5.7.33
 -- Версия PHP: 7.4.21
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- База данных: `cut_url`
 --
-CREATE DATABASE IF NOT EXISTS `cut_url` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `cut_url`;
 
 -- --------------------------------------------------------
 
@@ -29,7 +27,6 @@ USE `cut_url`;
 -- Структура таблицы `links`
 --
 
-DROP TABLE IF EXISTS `links`;
 CREATE TABLE `links` (
   `id` int(11) NOT NULL,
   `user_id` int(11) NOT NULL,
@@ -43,8 +40,9 @@ CREATE TABLE `links` (
 --
 
 INSERT INTO `links` (`id`, `user_id`, `long_link`, `short_link`, `views`) VALUES
-(1, 1, 'https://yandex.ru', 'asd', 13),
-(2, 1, 'https://google.com', 'ads', 15);
+(1, 3, 'https://yandex.ru', 'asd', 13),
+(2, 3, 'https://google.com', 'ads', 15),
+(3, 4, 'https://vk.com/', 'vk', 0);
 
 -- --------------------------------------------------------
 
@@ -52,7 +50,6 @@ INSERT INTO `links` (`id`, `user_id`, `long_link`, `short_link`, `views`) VALUES
 -- Структура таблицы `users`
 --
 
-DROP TABLE IF EXISTS `users`;
 CREATE TABLE `users` (
   `id` int(11) NOT NULL,
   `login` varchar(100) DEFAULT NULL,
@@ -64,7 +61,9 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `login`, `pass`) VALUES
-(3, 'admm', '$2y$10$6jo6XwJQ3zjTs3t1i7AMLOgvA4VLGLn8HCbpDRsm727udf6PdmXOa');
+(3, 'admm', '$2y$10$6jo6XwJQ3zjTs3t1i7AMLOgvA4VLGLn8HCbpDRsm727udf6PdmXOa'),
+(4, 'qwe', '$2y$10$.zirvBfJQBuRAqNtPNePk.pqmVRELGAKAHRDylawLBFthz/tKa.f2'),
+(5, 'mary', '$2y$10$7C6LvHoEP0uH8RcFcXSjtuX92N004El6a7MzW3iE3Upk2Odc7wvpK');
 
 --
 -- Индексы сохранённых таблиц
@@ -92,13 +91,13 @@ ALTER TABLE `users`
 -- AUTO_INCREMENT для таблицы `links`
 --
 ALTER TABLE `links`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
 --
 ALTER TABLE `users`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
