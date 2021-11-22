@@ -14,6 +14,11 @@ if (isset($_SESSION['success']) && !empty($_SESSION['success'])) {
     $_SESSION['success'] = '';
 }
 
+if (!isset($_SESSION['user']['id']) && empty($_SESSION['user']['id'])) {
+    header('Location: /');
+    die;
+}
+
 ?>
 <main class="container">
     <?php if (!empty($success)) { ?>
